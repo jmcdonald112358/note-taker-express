@@ -53,3 +53,6 @@ Additional attributions include:
 ### Questions
 If you have any questions about the project, please feel free to message at **jmcdonald112358@gmail.com**, or connect with me on GitHub: **[jmcdonald112358](https://github.com/jmcdonald112358)**
 
+### Links
+- [Repository](https://github.com/jmcdonald112358/note-taker-express)
+- [Deployed Application](https://secret-temple-27869.herokuapp.com/)
