@@ -2,8 +2,7 @@
 const fs = require('fs');
 const {v4: uuidv4 } = require('uuid');
 
-console.log(uuidv4());
-
+// Define class for db handling
 class Storage {
 
    read() {
@@ -23,7 +22,6 @@ class Storage {
    }
 
    deleteNote(id) {
-      //Something with filtering the matched ID and returning everything except that in a writeFileSync
       const allNotes = this.getNotes();
       const retainedNotes = allNotes.filter(note => note.id != id);
       fs.writeFileSync('db/db.json', JSON.stringify(retainedNotes));
