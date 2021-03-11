@@ -1,10 +1,12 @@
-// const notesData = require('../db/db.json');
+// Call dependencies
 const Storage = require('../db/db');
+
+// Define variable from Storage class to access db-related functions
 const store = new Storage;
 
 module.exports = (app) => {
 
-   //GET /api/notes reads ../db/db.json and returns all saved notes as JSON
+   // API route to read db.json file and return all saved notes to the client
    app.get('/api/notes', (req, res) => {
       const notes = store.getNotes();
 
@@ -14,15 +16,13 @@ module.exports = (app) => {
       return res.json(notes);
    });   
    
-   //POST /api/notes receives a new note on the request body, adds to db.json, and returns the new note to the client
-   //Each note should be given a UID -- npm package that can do this
+   // API route to store a new note to the db.json file and return the new note to the client
    app.post('/api/notes', (req, res) => {
       const newNote = store.postNote(req.body);
       return res.json(newNote);
    })
       
-   //BONUS
-   //Try doing DELETE /api/notes/:id to delete a note. Read notes from db.json, match given ID, remove corresponding note, refresh list
+   // API route to delete a note by reading notes from the db.json file, matching the appropriate ID, removing the corresponding note, and refreshing the list
    app.delete('/api/notes/:id', (req, res) => {
       const retained = store.deleteNote(req.params.id);
       return res.json(retained);
